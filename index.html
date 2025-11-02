@@ -578,6 +578,24 @@
         });
     }
 </script>
+    <script>
+fetch("/content/homepage.json")
+  .then(res => res.json())
+  .then(data => {
+    document.querySelector("h1").innerHTML = `${data.name} <span class='text-energy-green'>Lahsaini</span>`;
+    document.querySelector("h2").textContent = data.job_title + " – " + data.subtitle;
+    document.querySelector("#objective").textContent = data.objective;
+
+    const hard = document.querySelector("#skills-hard");
+    const soft = document.querySelector("#skills-soft");
+
+    hard.innerHTML = data.skills_hard.map(s => `<li>${s}</li>`).join("");
+    soft.innerHTML = data.skills_soft.map(s => `<li>${s}</li>`).join("");
+
+    document.querySelector("#profile-img").src = data.profile_image;
+});
+</script>
 </body>
 </html>
+
 
