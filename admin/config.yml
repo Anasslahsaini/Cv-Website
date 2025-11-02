@@ -2,18 +2,30 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "site"
     label: "محتوى الموقع"
     files:
-      - file: "index.html"
+      - file: "content/homepage.json"
         label: "الصفحة الرئيسية"
         name: "homepage"
         fields:
-          - { label: "الاسم", name: "name", widget: "string" }
-          - { label: "اللقب", name: "title", widget: "string" }
-          - { label: "التقديم", name: "presentation", widget: "text" }
+          - { label: "الإسم", name: "name", widget: "string" }
+          - { label: "الوظيفة", name: "job_title", widget: "string" }
+          - { label: "العنوان الفرعي", name: "subtitle", widget: "string" }
+          - { label: "الهدف", name: "objective", widget: "text" }
 
+          - label: "مهارات تقنية"
+            name: "skills_hard"
+            widget: "list"
+            field: { label: "Skill", name: "skill", widget: "string" }
+
+          - label: "مهارات شخصية"
+            name: "skills_soft"
+            widget: "list"
+            field: { label: "Skill", name: "skill", widget: "string" }
+
+          - { label: "صورة البروفايل", name: "profile_image", widget: "image" }
