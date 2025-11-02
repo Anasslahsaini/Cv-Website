@@ -137,8 +137,28 @@
     <!-- Le padding-bottom est augmenté (pb-20) pour compenser le CTA fixe sur mobile --><main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20 md:pb-12">
 
         <!-- 1. Hero section + name + mission statement + CTA --><section id="hero" class="min-h-[85vh] flex items-center pt-16 -mt-16">
-            <div class="grid md:grid-cols-3 gap-12 items-center">
-                <!-- Colonne de gauche (texte) --><div class="md:col-span-2 space-y-4 sm:space-y-6 fade-in-up">
+            <!-- MODIFIÉ: Changé de 'grid' à 'flex' et 'flex-col' pour contrôler l'ordre sur mobile -->
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                
+                <!-- Colonne de droite (Photo de profil) -->
+                <!-- MODIFIÉ: 'order-1' (mobile) et 'md:order-2' (desktop) pour changer la position -->
+                <div class="order-1 md:order-2 md:w-1/3 flex justify-center mt-10 md:mt-0 fade-in-up delay-100">
+                    <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-energy-green/50 relative">
+                        <!-- NOUVEAU: Photo de profil d'Anass --><img src="https://raw.githubusercontent.com/Anasslahsaini/Cv-Website/refs/heads/main/1759917813755.jpg" 
+                             alt="Photo de profil professionnelle d'Anass Lahsaini" 
+                             class="w-full h-full object-cover"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback au cas où l'image ne charge pas --><div class="w-full h-full bg-gray-200 text-gray-400 p-8 hidden items-center justify-center text-center flex-col" aria-label="Photo de profil professionnelle d'Anass Lahsaini">
+                            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+                            <span class="text-sm mt-2">Photo de Profil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne de gauche (texte) -->
+                <!-- MODIFIÉ: 'order-2' (mobile) et 'md:order-1' (desktop) pour changer la position -->
+                <div class="order-2 md:order-1 md:w-2/3 space-y-4 sm:space-y-6 fade-in-up">
                     <p class="text-lg sm:text-xl font-medium text-gray-500">Bonjour, je suis</p>
                     <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-charcoal-dark">
                         Anass <span class="text-energy-green">Lahsaini</span>
@@ -162,19 +182,6 @@
                     </div>
                 </div>
 
-                <!-- Colonne de droite (Photo de profil) --><div class="md:col-span-1 flex justify-center mt-10 md:mt-0 fade-in-up delay-100">
-                    <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-energy-green/50 relative">
-                        <!-- NOUVEAU: Photo de profil d'Anass --><img src="https://raw.githubusercontent.com/Anasslahsaini/Cv-Website/refs/heads/main/1759917813755.jpg" 
-                             alt="Photo de profil professionnelle d'Anass Lahsaini" 
-                             class="w-full h-full object-cover"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                        >
-                        <!-- Fallback au cas où l'image ne charge pas --><div class="w-full h-full bg-gray-200 text-gray-400 p-8 hidden items-center justify-center text-center flex-col" aria-label="Photo de profil professionnelle d'Anass Lahsaini">
-                            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
-                            <span class="text-sm mt-2">Photo de Profil</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
