@@ -13,7 +13,7 @@ collections:
     files:
       - label: "Page d'Accueil"
         name: "homepage_content"
-        file: "content/homepage.json"
+        file: "/content/homepage.json"
         fields:
           - { label: "Nom", name: "name", widget: "string" }
           - { label: "Titre", name: "job_title", widget: "string" }
