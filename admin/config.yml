@@ -6,26 +6,49 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "site"
-    label: "محتوى الموقع"
-    files:
-      - file: "content/homepage.json"
-        label: "الصفحة الرئيسية"
-        name: "homepage"
+  - name: "homepage"
+    label: "Contenu du site"
+    file: "content/homepage.json"
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Titre", name: "job_title", widget: "string" }
+      - { label: "Sous-titre", name: "subtitle", widget: "string" }
+      - { label: "Objectif", name: "objective", widget: "text" }
+
+      - label: "Photo de Profil"
+        name: "profile_image"
+        widget: "image"
+      
+      - label: "Compétences Techniques"
+        name: "skills_hard"
+        widget: "list"
+        field: { label: "Skill", name: "skill", widget: "string" }
+
+      - label: "Compétences Soft"
+        name: "skills_soft"
+        widget: "list"
+        field: { label: "Skill", name: "skill", widget: "string" }
+
+      - label: "Expériences"
+        name: "experience"
+        widget: "list"
         fields:
-          - { label: "الإسم", name: "name", widget: "string" }
-          - { label: "الوظيفة", name: "job_title", widget: "string" }
-          - { label: "العنوان الفرعي", name: "subtitle", widget: "string" }
-          - { label: "الهدف", name: "objective", widget: "text" }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Années", name: "years", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
 
-          - label: "مهارات تقنية"
-            name: "skills_hard"
-            widget: "list"
-            field: { label: "Skill", name: "skill", widget: "string" }
+      - label: "Formation"
+        name: "education"
+        widget: "list"
+        fields:
+          - { label: "École", name: "school", widget: "string" }
+          - { label: "Années", name: "years", widget: "string" }
+          - { label: "Ville", name: "city", widget: "string" }
 
-          - label: "مهارات شخصية"
-            name: "skills_soft"
-            widget: "list"
-            field: { label: "Skill", name: "skill", widget: "string" }
-
-          - { label: "صورة البروفايل", name: "profile_image", widget: "image" }
+      - label: "Contact"
+        name: "contact"
+        widget: "object"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Localisation", name: "location", widget: "string" }
