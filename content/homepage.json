@@ -1,0 +1,24 @@
+{
+  "name": "Anass Lahsaini",
+  "job_title": "Futur Ingénieur en Énergie & Développement Durable",
+  "subtitle": "Recherche Alternance (12-24 mois)",
+  "objective": "Intégrer une équipe innovante pour appliquer mes bases en ingénierie et ma capacité en gestion de projet.",
+  
+  "skills_hard": [
+    "Systèmes énergétiques",
+    "Programmation (Python, C)",
+    "Analyse de données",
+    "Modélisation 3D / CAO",
+    "Pack Office avancé"
+  ],
+  
+  "skills_soft": [
+    "Communication",
+    "Gestion de projet",
+    "Travail en équipe",
+    "Résolution de problèmes",
+    "Autonomie & Organisation"
+  ],
+
+  "profile_image": "/uploads/profile.jpg"
+}
