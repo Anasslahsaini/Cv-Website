@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anass Lahsaini - Recherche Alternance Ingénierie</title>
+    <!-- SEO ESSENTIEL : Meta Description -->
+    <meta name="description" content="Anass Lahsaini, futur Ingénieur ENSIATE. Recherche une alternance (12-24 mois) en Énergie, Développement Durable et Gestion de Projet. Profil technique et leadership éprouvé.">
+    <!-- Chargement de Tailwind CSS pour un design moderne et responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<!-- Configuration de la police Inter et des couleurs personnalisées -->
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal-dark': '#1a1a1a', // Noir Charbon
+                        'soft-gray': '#f3f4f6',      // Gris très clair / Fond de section en mode clair
+                        'energy-green': '#059669',  // Vert professionnel (Accent)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Définition du style d'animation de base */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* Classe activée par JavaScript */
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Style pour les tuiles de compétences */
+        .skill-tile {
+            transition: all 0.3s ease;
+        }
+        .skill-tile:hover {
+            transform: translateY(-4px) scale(1.02);
+            /* Utilisation du Vert Énergie pour l'ombre au survol (RGB de #059669) */
+            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.2), 0 4px 6px -2px rgba(5, 150, 105, 0.05);
+        }
+        /* Assure un défilement doux */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* CORRECTION DU DÉBORDEMENT HORIZONTAL */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* --- STYLES SPÉCIFIQUES À L'ANIMATION D'INTRODUCTION --- */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+            font-weight: 700;
+        }
+        /* Style du curseur de l'effet machine à écrire */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: #059669;
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        /* Cache le curseur lorsque le texte est complet */
+        #intro-text.finished + .typing-cursor {
+             animation: none;
+             opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-charcoal-dark font-sans transition-colors duration-500">
+    <!-- OVERLAY D'INTRODUCTION (Mode Machine à Écrire) -->
+    <div id="intro-overlay">
+        <div class="px-4 flex items-center justify-center max-w-full mx-auto">
+            <h1 id="intro-text" class="inline text-3xl sm:text-4xl font-extrabold text-charcoal-dark">
+            </h1>
+            <span class="typing-cursor"></span>
+        </div>
+    </div>
+    <!-- FIN OVERLAY -->
+
+    <!-- Navbar Fixe / TOC (Table of Contents) -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-soft-gray shadow-lg transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-xl font-bold text-energy-green tracking-wider">A. LAHSAINI</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Navigation (TOC) - MIS À JOUR (Projets retirés) -->
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#summary" class="text-charcoal-dark hover:text-energy-green px-3 py-2 rounded-md text-sm font-medium transition duration-200">Profil</a>
+                            <a href="#skills" class="text-charcoal-dark hover:text-energy-green px-3 py-2 rounded-md text-sm font-medium transition duration-200">Compétences</a>
+                            <a href="#experience" class="text-charcoal-dark hover:text-energy-green px-3 py-2 rounded-md text-sm font-medium transition duration-200">Expérience</a>
+                            <!-- LIEN VERS LES PROJETS RETIRÉ -->
+                            <a href="#education" class="text-charcoal-dark hover:text-energy-green px-3 py-2 rounded-md text-sm font-medium transition duration-200">Formation</a>
+                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-energy-green hover:bg-emerald-700 transition duration-300 shadow-md">
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 1. Hero section + name + mission statement + CTA -->
+        <section id="hero" class="min-h-screen flex items-center pt-16 -mt-16">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <!-- Colonne de gauche (texte) -->
+                <div class="md:col-span-2 space-y-4 sm:space-y-6 fade-in-up">
+                    <p class="text-lg sm:text-xl font-medium text-gray-500">Bonjour, je suis</p>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-charcoal-dark">
+                        Anass <span class="text-energy-green">Lahsaini</span>
+                    </h1>
+                    <!-- Mission Statement (Rendre plus ATS Friendly) -->
+                    <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 border-l-4 border-energy-green pl-4">
+                        Futur Ingénieur en Énergie & Développement Durable – <span class="block sm:inline text-charcoal-dark">Recherche Alternance (12-24 mois)</span>
+                    </h2>
+                    <p class="mt-8 text-lg max-w-2xl">
+                        **Objectif :** Intégrer une équipe innovante pour appliquer mes solides bases en ingénierie et ma capacité éprouvée en **gestion de projet événementiel** (logistique, coordination) afin de contribuer concrètement à des initiatives d'efficacité énergétique et de développement durable.
+                    </p>
+                    <!-- CTA + Download CV (Above the fold requirement) -->
+                    <div class="pt-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="px-6 py-3 text-lg font-medium rounded-full text-white bg-energy-green hover:bg-emerald-700 transition duration-300 shadow-xl shadow-energy-green/40 text-center">
+                            Me contacter pour une Alternance
+                        </a>
+                        <a href="CV_Anass_Lahsaini.pdf" download class="px-6 py-3 text-lg font-medium rounded-full text-charcoal-dark border border-charcoal-dark hover:bg-soft-gray transition duration-300 text-center">
+                            Télécharger mon CV (PDF)
+                        </a>
+                        <!-- Ajout du Lien LinkedIn visible (Recommandation B1) -->
+                        <a href="https://linkedin.com/in/anasslahsaini" target="_blank" aria-label="Profil LinkedIn d'Anass Lahsaini" class="flex items-center justify-center p-3 rounded-full text-charcoal-dark border border-gray-400 hover:bg-soft-gray transition duration-300">
+                             <!-- Icône LinkedIn (à jour) -->
+                            <svg class="w-6 h-6 text-energy-green" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.551-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.742 7 2.742v6.493z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne de droite (Photo de profil) -->
+                <div class="md:col-span-1 flex justify-center mt-10 md:mt-0 fade-in-up delay-100">
+                    <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-energy-green/50 relative">
+                        <!-- Placeholder Image (Correction A11Y A3) -->
+                        <svg class="w-full h-full text-gray-400 p-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Photo de profil professionnelle d'Anass Lahsaini"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+                        <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm text-charcoal-dark/70 opacity-0 md:opacity-100 pointer-events-none">Photo de Profil</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- -->
+
+        <!-- 2. Short professional summary (2–3 lines) -->
+        <!-- Background: bg-soft-gray (Alternance 1) -->
+        <section id="summary" class="py-16 sm:py-24 bg-soft-gray rounded-2xl transition-colors duration-500 my-16">
+            <div class="max-w-4xl mx-auto p-6 sm:p-8 text-center fade-in-up">
+                <h2 class="text-3xl font-bold mb-4 text-charcoal-dark">
+                    Résumé de mon Profil
+                </h2>
+                <!-- 2-3 lignes, ATS-friendly -->
+                <p class="text-lg sm:text-xl leading-relaxed text-gray-700">
+                    Étudiant en CPGE, je rejoins l'**ENSIATE** en 2025 pour une formation d'Ingénieur axée sur l'**Énergie et le Développement Durable**. Mon profil combine une **solide rigueur technique** (CPGE) et une **expertise pratique en gestion et logistique d'événements**, démontrant un leadership efficace, une autonomie opérationnelle et une grande capacité d'adaptation.
+                </p>
+            </div>
+        </section>
+
+        <!-- --- -->
+
+        <!-- 3. Skills (grouped by technical & soft) -->
+        <!-- Background: bg-white (Alternance 2) -->
+        <section id="skills" class="py-16 sm:py-24 bg-white rounded-2xl transition-colors duration-500 my-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-charcoal-dark fade-in-up">
+                Compétences Techniques & Douces
+            </h2>
+            <div class="max-w-6xl mx-auto space-y-12">
+
+                <!-- Groupe 1: Compétences Techniques (Hard Skills) -->
+                <div class="fade-in-up delay-100">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-energy-green mb-6 border-b pb-2">Techniques (Hard Skills)</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                        <!-- Ajout de compétences techniques typiques Ingé/CPGE pour l'ATS -->
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">⚙️</span>
+                            <p class="font-semibold text-sm sm:text-lg">Systèmes Énergétiques</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">🖥️</span>
+                            <p class="font-semibold text-sm sm:text-lg">Programmation (Python/C)</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">📐</span>
+                            <p class="font-semibold text-sm sm:text-lg">Modélisation 3D (CAD)</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">📊</span>
+                            <p class="font-semibold text-sm sm:text-lg">Analyse de Données</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">💻</span>
+                            <p class="font-semibold text-sm sm:text-lg">Pack Office (Expert)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Groupe 2: Compétences Douces (Soft Skills) -->
+                <div class="fade-in-up delay-300">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-energy-green mb-6 border-b pb-2">Douces (Soft Skills)</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">🤝</span>
+                            <p class="font-semibold text-sm sm:text-lg">Travail Collaboratif</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">⏱️</span>
+                            <p class="font-semibold text-sm sm:text-lg">Gestion de Projet</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">🧠</span>
+                            <p class="font-semibold text-sm sm:text-lg">Résolution de Problèmes</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">💬</span>
+                            <p class="font-semibold text-sm sm:text-lg">Communication Efficace</p>
+                        </div>
+                        <div class="skill-tile bg-soft-gray p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-2xl">
+                            <span class="text-2xl sm:text-3xl text-charcoal-dark mb-2 block">💡</span>
+                            <p class="font-semibold text-sm sm:text-lg">Proactivité & Autonomie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- -->
+
+        <!-- 4. Professional experiences & measurable achievements (ATS format) -->
+        <!-- Background: bg-soft-gray (Alternance 3) -->
+        <section id="experience" class="py-16 sm:py-24 bg-soft-gray rounded-2xl transition-colors duration-500 my-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-charcoal-dark fade-in-up">
+                Expérience & Réalisations Clés
+            </h2>
+            <div class="max-w-5xl mx-auto space-y-8 sm:space-y-12">
+
+                <!-- Expérience 1: Organisateur événementiel -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-energy-green/70 fade-in-up delay-100">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-charcoal-dark">Organisation d’Événements</h3>
+                        <span class="text-sm font-medium text-gray-500 mt-1 sm:mt-0">2023–2025</span>
+                    </div>
+                    <p class="text-base sm:text-lg font-semibold text-gray-600 mb-4">Rôle en Logistique & Coordination</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li>**Planifié** et **géré** des événements majeurs (budgétisation, sélection des fournisseurs).</li>
+                        <li>**Coordonné** la logistique complète, incluant l'organisation des activités et ateliers.</li>
+                        <li>**Supervisé** et **animé** des groupes de bénévoles, assurant le respect des délais et du planning.</li>
+                        <li>**Géré** la communication avec les parties prenantes externes (partenaires, participants).</li>
+                    </ul>
+                </div>
+
+                <!-- Expérience 2: Projet TIPE – Bracelet intelligent -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-energy-green/70 fade-in-up delay-200">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-charcoal-dark">Projet TIPE – Conception Électronique</h3>
+                        <span class="text-sm font-medium text-gray-500 mt-1 sm:mt-0">2025</span>
+                    </div>
+                    <p class="text-base sm:text-lg font-semibold text-gray-600 mb-4">Projet Académique d'Ingénierie</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li>**Conçu** et **prototypé** un dispositif électronique autonome (bracelet intelligent).</li>
+                        <li>**Démontré** une forte **autonomie** dans la recherche, la conception et l'exécution du projet.</li>
+                        <li>**Garantie** le **respect des délais** stricts du cycle de développement académique.</li>
+                        <li>**Résolu** des problèmes complexes d'efficacité énergétique et de miniaturisation du produit.</li>
+                    </ul>
+                </div>
+
+                <!-- Expérience 3: Responsable de Club Étudiant -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-energy-green/70 fade-in-up delay-300">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-charcoal-dark">Responsable de Club Étudiant</h3>
+                        <span class="text-sm font-medium text-gray-500 mt-1 sm:mt-0">2023–2025</span>
+                    </div>
+                    <p class="text-base sm:text-lg font-semibold text-gray-600 mb-4">Lycée / CPGE - Leadership et Pédagogie</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                        <li>**Dirigé** l'organisation des activités et des ateliers thématiques du club.</li>
+                        <li>**Assuré** l'animation et l'encadrement du groupe (X membres), stimulant la participation et l'engagement.</li>
+                        <li>**Géré** le planning et la communication interne du club de manière structurée et efficace.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- --- -->
+
+        <!-- 5. Project gallery / visual proof -->
+        <!-- CETTE SECTION EST MASQUÉE SELON LA DEMANDE DE L'UTILISATEUR -->
+        <!-- <section id="projects" class="py-16 sm:py-24 bg-white rounded-2xl transition-colors duration-500 my-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-charcoal-dark fade-in-up">
+                Projets & Réalisations Visuelles
+            </h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <div class="bg-soft-gray rounded-xl shadow-lg overflow-hidden fade-in-up delay-100 border border-gray-200">
+                    <div class="h-48 w-full bg-gray-300 flex items-center justify-center text-charcoal-dark font-bold text-sm border-b-2 border-energy-green/50">
+                        [Placeholder Photo Événementiel]
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-energy-green mb-2">Coordination Logistique</h3>
+                        <p class="text-gray-600 text-sm">
+                            **Description :** Supervision et coordination des équipes le jour de l'événement. Gestion de la logistique (matériel, planning).
+                            **Compétences Clés :** Leadership, Gestion du stress, Résolution d'urgence.
+                        </p>
+                        <a href="#" class="mt-3 block text-right text-energy-green hover:text-emerald-700 text-sm font-medium">Voir la Fiche Projet →</a>
+                    </div>
+                </div>
+
+                <div class="bg-soft-gray rounded-xl shadow-lg overflow-hidden fade-in-up delay-200 border border-gray-200">
+                    <div class="h-48 w-full bg-gray-300 flex items-center justify-center text-charcoal-dark font-bold text-sm border-b-2 border-energy-green/50">
+                        [Placeholder Prototype Bracelet]
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-energy-green mb-2">Prototype TIPE (Ingénierie)</h3>
+                        <p class="text-gray-600 text-sm">
+                            **Description :** Développement du prototype de bracelet intelligent. Travail sur l'efficacité énergétique et la miniaturisation.
+                            **Compétences Clés :** Électronique, Prototypage, Ingénierie des Systèmes.
+                        </p>
+                        <a href="#" class="mt-3 block text-right text-energy-green hover:text-emerald-700 text-sm font-medium">Voir la Fiche Projet →</a>
+                    </div>
+                </div>
+
+                <div class="bg-soft-gray rounded-xl shadow-lg overflow-hidden fade-in-up delay-300 border border-gray-200">
+                    <div class="h-48 w-full bg-gray-300 flex items-center justify-center text-charcoal-dark font-bold text-sm border-b-2 border-energy-green/50">
+                        [Placeholder Atelier Club]
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-energy-green mb-2">Ateliers & Animation</h3>
+                        <p class="text-gray-600 text-sm">
+                            **Description :** Création de supports et animation d'ateliers pour stimuler la participation et l'apprentissage technique des membres.
+                            **Compétences Clés :** Communication Publique, Pédagogie, Engagement Équipes.
+                        </p>
+                        <a href="#" class="mt-3 block text-right text-energy-green hover:text-emerald-700 text-sm font-medium">Voir la Fiche Projet →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section> -->
+
+        <!-- --- -->
+        
+        <!-- 6. Education & Certifications -->
+        <!-- Background: bg-white (Alternance 4) -->
+        <section id="education" class="py-16 sm:py-24 bg-white rounded-2xl transition-colors duration-500 my-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-charcoal-dark fade-in-up">
+                Parcours Académique & Formation
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+                
+                <!-- Formation 1: ENSIATE (ING2) -->
+                <div class="bg-soft-gray p-6 sm:p-8 rounded-xl shadow-lg border-l-4 border-energy-green fade-in-up delay-100">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-charcoal-dark">ENSIATE – Licence Sciences pour l’Ingénieur (ING2)</h3>
+                        <span class="text-sm font-medium text-gray-500 mt-1 sm:mt-0">2025 – en cours</span>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Option Énergie & Développement Durable</p>
+                    <p class="text-base text-gray-600 italic">Suresnes</p>
+                </div>
+
+                <!-- Formation 2: CPGE TSI -->
+                <div class="bg-soft-gray p-6 sm:p-8 rounded-xl shadow-lg border-l-4 border-energy-green fade-in-up delay-200">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-charcoal-dark">CPGE TSI – Classes Préparatoires</h3>
+                        <span class="text-sm font-medium text-gray-500 mt-1 sm:mt-0">2023–2025</span>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Filière Technologique (TSI)</p>
+                    <p class="text-base text-gray-600 italic">Oujda</p>
+                </div>
+
+                <!-- Formation 3: BAC STM -->
+                <div class="bg-soft-gray p-6 sm:p-8 rounded-xl shadow-lg border-l-4 border-energy-green fade-in-up delay-300">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-charcoal-dark">BACCALAURÉAT STM</h3>
+                        <span class="text-sm font-medium text-gray-500 mt-1 sm:mt-0">2023</span>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Filière Sciences et Technologies Mécanique</p>
+                    <p class="text-base text-gray-600 italic">Berkane</p>
+                </div>
+            </div>
+
+            <!-- Langues remain the same, adjust spacing -->
+            <div class="max-w-4xl mx-auto mt-10 pt-6 sm:mt-12 sm:pt-8 border-t border-gray-300 fade-in-up delay-400">
+                <h3 class="text-2xl font-bold text-center text-charcoal-dark mb-4">Langues</h3>
+                <!-- MISE À JOUR : Français, Anglais, Arabe -->
+                <p class="text-center text-lg sm:text-xl text-gray-700">
+                    Français, Anglais, Arabe
+                </p>
+            </div>
+        </section>
+
+        <!-- --- -->
+
+        <!-- 7. Contact + Download CV CTA -->
+        <section id="contact" class="py-16 sm:py-24">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-charcoal-dark fade-in-up">
+                Me Contacter
+            </h2>
+            <div class="max-w-xl mx-auto space-y-12">
+                
+                <!-- Bloc d'informations de contact -->
+                <div class="bg-charcoal-dark text-white p-8 sm:p-12 rounded-2xl shadow-2xl space-y-6 fade-in-up delay-100">
+
+                    <div class="flex items-start space-x-4">
+                        <!-- Icône Mail -->
+                        <svg class="w-6 h-6 text-energy-green flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
+                        <div>
+                            <p class="text-sm text-gray-400">Email Professionnel</p>
+                            <a href="mailto:anasslahsaini2006@gmail.com" class="text-base sm:text-lg font-medium hover:text-energy-green transition duration-200">anasslahsaini2006@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <!-- Icône Téléphone -->
+                        <svg class="w-6 h-6 text-energy-green flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <div>
+                            <p class="text-sm text-gray-400">Téléphone</p>
+                            <span class="text-base sm:text-lg font-medium">+33 7 44 64 45 25</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <!-- Icône Localisation -->
+                        <svg class="w-6 h-6 text-energy-green flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div>
+                            <p class="text-sm text-gray-400">Zone de Recherche</p>
+                            <span class="text-base sm:text-lg font-medium">92300 Levallois-Perret (IDF)</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-gray-700">
+                         <!-- Download CV CTA (Duplicate pour le contact) -->
+                        <a href="CV_Anass_Lahsaini.pdf" download class="w-full mt-4 flex items-center justify-center space-x-2 px-6 py-3 text-lg font-medium rounded-xl text-charcoal-dark bg-energy-green hover:bg-emerald-700 transition duration-300 shadow-xl">
+                            <!-- Icône de Téléchargement -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L10 11.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v7a1 1 0 11-2 0V4a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                            <span>Télécharger le CV pour évaluation</span>
+                        </a>
+
+                        <div class="pt-4 text-center">
+                            <!-- Correction A11Y A2 : Ajout du lien réel et aria-label -->
+                            <a href="https://linkedin.com/in/anasslahsaini" target="_blank" aria-label="Profil LinkedIn d'Anass Lahsaini" class="inline-flex items-center space-x-2 text-base sm:text-lg font-semibold text-energy-green hover:text-emerald-400 transition duration-200">
+                                <!-- Icône LinkedIn (à jour) -->
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.551-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.742 7 2.742v6.493z"></path></svg>
+                                <span>Mon Profil LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- NOUVEAU BLOC : Déposer votre Candidature (CV Drop) -->
+                <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl space-y-4 fade-in-up delay-200 text-center border border-gray-200">
+                    <h3 class="text-2xl font-bold text-charcoal-dark">Déposer votre Candidature (CV)</h3>
+                    <p class="text-gray-700 text-lg">
+                        Pour une évaluation rapide, veuillez m'envoyer votre offre et votre description de poste directement par email.
+                    </p>
+                    <a href="mailto:anasslahsaini2006@gmail.com" class="inline-flex items-center space-x-2 px-6 py-3 text-lg font-medium rounded-full text-white bg-energy-green hover:bg-emerald-700 transition duration-300 shadow-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
+                        <span>Envoyer votre offre par Email</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal-dark text-white p-8 mt-12">
+        <div class="max-w-7xl mx-auto text-center text-sm text-gray-400">
+            &copy; 2025 Anass Lahsaini. Optimisé pour l'emploi.
+        </div>
+    </footer>
+
+    <!-- JavaScript pour l'animation 'fade-in-up' et Intro -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- Logique d'Animation Fade-In-Up pour les sections ---
+            const elements = document.querySelectorAll('.fade-in-up');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+
+
+            // --- Logique d'Animation d'Introduction (Machine à Écrire) ---
+            const introOverlay = document.getElementById('intro-overlay');
+            
+            // 1. Vérifie si l'intro a déjà été jouée dans cette session
+            if (sessionStorage.getItem('introPlayed') === 'true') {
+                introOverlay.style.display = 'none';
+                return; // Stoppe l'exécution du reste du script d'intro
+            }
+            
+            // 2. Si non jouée, procède à l'animation
+            const introTextElement = document.getElementById('intro-text');
+            const textToType = "Prêt à découvrir mon parcours ? Allons-y.".split(' ');
+            const delayBetweenWords = 150; // Délai entre chaque mot (ms)
+            const finalDelay = 2500; // 2.5 secondes après affichage complet (ms)
+            let wordIndex = 0;
+
+            function typeWord() {
+                if (wordIndex < textToType.length) {
+                    // Ajoute un mot avec un espace, puis un petit délai
+                    introTextElement.textContent += textToType[wordIndex] + (wordIndex < textToType.length - 1 ? ' ' : '');
+                    wordIndex++;
+                    setTimeout(typeWord, delayBetweenWords);
+                } else {
+                    // Animation terminée : retire le curseur et fait disparaître l'overlay
+                    introTextElement.classList.add('finished');
+                    // Marque l'intro comme jouée
+                    sessionStorage.setItem('introPlayed', 'true'); 
+                    
+                    setTimeout(function() {
+                        // Déclenche la transition de l'overlay (opacity 1 -> 0)
+                        introOverlay.style.opacity = '0';
+                        // Supprime l'overlay du DOM après la transition
+                        setTimeout(() => {
+                            introOverlay.style.display = 'none';
+                        }, 1000); // 1000ms = durée de transition CSS
+                    }, finalDelay);
+                }
+            }
+            typeWord();
+        });
+    </script>
+</body>
+</html>
